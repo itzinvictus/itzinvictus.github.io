@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Anime List" property="og:title" />
+    <meta content="Anime List" property="og:description" />
+    <link rel="stylesheet" href="anime-list.css">
+    <title>Anime List</title>
+</head>
+<body class="flex-container">
+    <header>
+        <h1 id="title">Anime List</h1>
+    </header>
+    <main>
+        <form id="animeForm">
+            <input type="text" id="animeTitle" placeholder="Anime Title" required>
+            <button type="submit">Add Anime</button>
+        </form>
+        <div class="anime-list" id="animeList"></div>
+    </main>
+    <script>
+        // Load saved anime list from localStorage on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const animeForm = document.getElementById('animeForm');
+            const animeList = document.getElementById('animeList');
+
+            const savedAnimeList = JSON.parse(localStorage.getItem('animeList')) || [];
+            savedAnimeList.forEach(title => addAnimeToList(title));
+
+            animeForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const title = document.getElementById('animeTitle').value;
+
+                addAnimeToList(title);
+
+                // Save the updated list to localStorage
+                const savedAnimeList = JSON.parse(localStorage.getItem('animeList')) || [];
+                savedAnimeList.push(title);
+                localStorage.setItem('animeList', JSON.stringify(savedAnimeList));
+
+                animeForm.reset();
+            });
+
+            function addAnimeToList(title) {
+                const animeItem = document.createElement('div');
+                animeItem.classList.add('anime-item');
+
+                const animeTitle = document.createElement('h3');
+                animeTitle.textContent = title;
+
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.classList.add('remove-button');
+                removeButton.addEventListener('click', function() {
+                    animeList.removeChild(animeItem);
+
+                    // Update localStorage after removal
+                    const savedAnimeList = JSON.parse(localStorage.getItem('animeList')) || [];
+                    const updatedList = savedAnimeList.filter(item => item !== title);
+                    localStorage.setItem('animeList', JSON.stringify(updatedList));
+                });
+
+                animeItem.appendChild(animeTitle);
+                animeItem.appendChild(removeButton);
+
+                animeList.appendChild(animeItem);
+            }
+        });
+    </script>
+    <footer style="background-color: black; color: white; text-align: center; padding: 10px; position: fixed; bottom: 0; width: 100%;">
+        <p>&copy; 2025 Anime List.</p>
+    </footer>
+</body>
+</html>
