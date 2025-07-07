@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./livestreams.css">
+    <title>Battle of the Orgs - Live Streams</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔴 Live Streams</h1>
+            <p>Watch the Battle of the Orgs unfold in real-time</p>
+            <div class="controls">
+                <button class="btn btn-add" onclick="openAddModal()">+ Add Stream</button>
+                <button class="btn" onclick="refreshAllStreams()">🔄 Refresh All</button>
+                <button class="btn" onclick="toggleAutoRefresh()">⏱️ Auto Refresh: OFF</button>
+            </div>
+        </div>
+
+        <div id="streamsContainer" class="streams-grid">
+            <!-- Streams will be populated here -->
+        </div>
+
+        <div id="emptyState" class="empty-state">
+            <h3>No streams available</h3>
+            <p>Add your first stream to get started!</p>
+        </div>
+    </div>
+
+    <!-- Add Stream Modal -->
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <h2>Add New Stream</h2>
+            <form id="addStreamForm">
+                <div class="form-group">
+                    <label for="streamTitle">Stream Title</label>
+                    <input type="text" id="streamTitle" required placeholder="e.g., Team Alpha vs Team Beta">
+                </div>
+                <div class="form-group">
+                    <label for="streamUrl">Stream URL (iframe src)</label>
+                    <input type="url" id="streamUrl" required placeholder="https://www.twitch.tv/embed/...">
+                </div>
+                <div class="form-group">
+                    <label for="streamDescription">Description (optional)</label>
+                    <textarea id="streamDescription" rows="3" placeholder="Brief description of the stream"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeAddModal()">Cancel</button>
+                    <button type="submit" class="btn btn-add">Add Stream</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let streams = [];
+        let autoRefresh = false;
+        let refreshInterval;
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadStreams();
+            updateDisplay();
+        });
+
+        // Load streams from memory (you can modify this to load from your backend)
+        function loadStreams() {
+            // Example streams - remove these and load from your data source
+            streams = [
+                {
+                    id: 1,
+                    title: "Team Alpha Championship Stream",
+                    url: "https://player.twitch.tv/?channel=your_channel&parent=localhost",
+                    description: "Live coverage of Team Alpha's championship match",
+                    isLive: true,
+                    createdAt: new Date().toISOString()
+                }
+            ];
+        }
+
+        // Update the display
+        function updateDisplay() {
+            const container = document.getElementById('streamsContainer');
+            const emptyState = document.getElementById('emptyState');
+            
+            if (streams.length === 0) {
+                container.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+            
+            container.style.display = 'grid';
+            emptyState.style.display = 'none';
+            
+            container.innerHTML = streams.map(stream => `
+                <div class="stream-card">
+                    <div class="stream-header">
+                        <h3 class="stream-title">${stream.title}</h3>
+                        <span class="stream-status ${stream.isLive ? 'status-live' : 'status-offline'}">
+                            ${stream.isLive ? '🔴 Live' : '⚫ Offline'}
+                        </span>
+                    </div>
+                    ${stream.description ? `<p style="margin-bottom: 15px; opacity: 0.8;">${stream.description}</p>` : ''}
+                    <iframe class="stream-iframe" src="${stream.url}" allowfullscreen></iframe>
+                    <div class="stream-actions">
+                        <button class="btn btn-small btn-secondary" onclick="toggleStreamStatus(${stream.id})">
+                            Toggle Status
+                        </button>
+                        <button class="btn btn-small btn-secondary" onclick="editStream(${stream.id})">
+                            Edit
+                        </button>
+                        <button class="btn btn-small btn-danger" onclick="removeStream(${stream.id})">
+                            Remove
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Modal functions
+        function openAddModal() {
+            document.getElementById('addModal').style.display = 'block';
+        }
+
+        function closeAddModal() {
+            document.getElementById('addModal').style.display = 'none';
+            document.getElementById('addStreamForm').reset();
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('addModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeAddModal();
+            }
+        });
+
+        // Add stream form submission
+        document.getElementById('addStreamForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const title = document.getElementById('streamTitle').value.trim();
+            const url = document.getElementById('streamUrl').value.trim();
+            const description = document.getElementById('streamDescription').value.trim();
+            
+            if (!title || !url) {
+                alert('Please fill in required fields');
+                return;
+            }
+            
+            const newStream = {
+                id: Date.now(),
+                title: title,
+                url: url,
+                description: description,
+                isLive: true,
+                createdAt: new Date().toISOString()
+            };
+            
+            streams.push(newStream);
+            updateDisplay();
+            closeAddModal();
+        });
+
+        // Stream management functions
+        function removeStream(id) {
+            if (confirm('Are you sure you want to remove this stream?')) {
+                streams = streams.filter(stream => stream.id !== id);
+                updateDisplay();
+            }
+        }
+
+        function toggleStreamStatus(id) {
+            const stream = streams.find(s => s.id === id);
+            if (stream) {
+                stream.isLive = !stream.isLive;
+                updateDisplay();
+            }
+        }
+
+        function editStream(id) {
+            const stream = streams.find(s => s.id === id);
+            if (stream) {
+                document.getElementById('streamTitle').value = stream.title;
+                document.getElementById('streamUrl').value = stream.url;
+                document.getElementById('streamDescription').value = stream.description || '';
+                
+                // Remove the old stream and open modal for editing
+                removeStream(id);
+                openAddModal();
+            }
+        }
+
+        // Utility functions
+        function refreshAllStreams() {
+            // Reload all iframes
+            const iframes = document.querySelectorAll('.stream-iframe');
+            iframes.forEach(iframe => {
+                const src = iframe.src;
+                iframe.src = '';
+                setTimeout(() => iframe.src = src, 100);
+            });
+        }
+
+        function toggleAutoRefresh() {
+            const btn = event.target;
+            autoRefresh = !autoRefresh;
+            
+            if (autoRefresh) {
+                btn.textContent = '⏱️ Auto Refresh: ON';
+                btn.style.background = 'linear-gradient(135deg, #4ecdc4, #44a08d)';
+                refreshInterval = setInterval(refreshAllStreams, 30000); // Refresh every 30 seconds
+            } else {
+                btn.textContent = '⏱️ Auto Refresh: OFF';
+                btn.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                clearInterval(refreshInterval);
+            }
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeAddModal();
+            }
+            if (e.ctrlKey && e.key === 'n') {
+                e.preventDefault();
+                openAddModal();
+            }
+        });
+    </script>
+</body>
+</html>
