@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Register your team for Battle of the Orgs - The Ultimate Esports Tournament Platform">
+    <meta name="keywords" content="esports, tournaments, teams, gaming, competition, Battle of the Orgs, registration">
+    <meta name="author" content="Battle of the Orgs Team">
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="theme-color" content="#ff4500">
+    <link rel="stylesheet" href="teamregistration.css">
+    
+    <title>Team Registration - Battle of the Orgs</title>
+
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="/Battle Of The Orgs/Home/battleoftheorgs.html" class="logo">Battle of the Orgs</a>
+            <ul class="nav-menu">
+                <li><a href="" class="nav-link">Teams</a></li>
+                <li><a href="/Battle Of The Orgs/tournaments/tournaments.html" class="nav-link">Tournaments</a></li>
+                <li><a href="/Battle Of The Orgs/Live streams/livestreams.html" class="nav-link">Live Matches</a></li>
+                <li><a href="/Battle Of The Orgs/Subscriptions/subscriptions2.html" class="nav-link">Subscriptions</a></li>
+                <li><a href="battleoftheorgs.html#news" class="nav-link">News</a></li>
+                <li><a href="battleoftheorgs.html#community" class="nav-link">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Registration Header -->
+        <section class="registration-header">
+            <h1>🚀 Team Registration</h1>
+            <p>Join the battle and register your organization for upcoming tournaments</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </section>
+
+        <!-- Registration Form -->
+        <div class="form-container">
+            <form id="registrationForm">
+                <!-- Team Information -->
+                <div class="form-section">
+                    <h3>🏆 Team Information</h3>
+                    <div class="form-group">
+                        <label for="teamName">Team Name <span class="required">*</span></label>
+                        <input type="text" id="teamName" name="teamName" required placeholder="Enter your team name">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="teamTag">Team Tag <span class="required">*</span></label>
+                            <input type="text" id="teamTag" name="teamTag" required placeholder="e.g., [HAWKS]" maxlength="10">
+                        </div>
+                        <div class="form-group">
+                            <label for="division">Division <span class="required">*</span></label>
+                            <select id="division" name="division" required>
+                                <option value="">Select Division</option>
+                                <option value="rose">Rose Bowl</option>
+                                <option value="super">Super Bowl</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="teamDescription">Team Description</label>
+                        <textarea id="teamDescription" name="teamDescription" placeholder="Tell us about your team's background, achievements, and goals..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Captain Information -->
+                <div class="form-section">
+                    <h3>👑 Team Captain</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="captainName">Captain Name <span class="required">*</span></label>
+                            <input type="text" id="captainName" name="captainName" required placeholder="Full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="captainGamertag">Captain Gamertag <span class="required">*</span></label>
+                            <input type="text" id="captainGamertag" name="captainGamertag" required placeholder="In-game name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="captainEmail">Email <span class="required">*</span></label>
+                            <input type="email" id="captainEmail" name="captainEmail" required placeholder="captain@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="captainDiscord">Discord Username</label>
+                            <input type="text" id="captainDiscord" name="captainDiscord" placeholder="username#1234">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Members -->
+                <div class="form-section">
+                    <h3>👥 Team Members</h3>
+                    <div class="player-slots" id="playerSlots">
+                        <!-- Player slots will be generated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Additional Information -->
+                <div class="form-section">
+                    <h3>⚡ Additional Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="experience">Team Experience Level</label>
+                            <select id="experience" name="experience">
+                                <option value="">Select Experience</option>
+                                <option value="amateur">Amateur</option>
+                                <option value="semi-pro">Semi-Professional</option>
+                                <option value="professional">Professional</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="region">Region</label>
+                            <select id="region" name="region">
+                                <option value="">Select Region</option>
+                                <option value="na-east">North America East</option>
+                                <option value="na-west">North America West</option>
+                                <option value="europe">Europe</option>
+                                <option value="asia">Asia</option>
+                                <option value="oceania">Oceania</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="sponsor">Sponsor/Organization (if any)</label>
+                        <input type="text" id="sponsor" name="sponsor" placeholder="Enter sponsor or parent organization">
+                    </div>
+                </div>
+
+                <!-- Terms and Conditions -->
+                <div class="form-section">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">I agree to the <a href="rulebook.html" style="color: #00d4ff;">Tournament Rules and Terms of Service</a> <span class="required">*</span></label>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="newsletter" name="newsletter">
+                        <label for="newsletter">Subscribe to tournament updates and newsletters</label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-full">Register Team</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="battleoftheorgs.html#about" class="footer-link">About</a>
+                <a href="battleoftheorgs.html#news" class="footer-link">News</a>
+                <a href="battleoftheorgs.html#community" class="footer-link">Community</a>
+                <a href="battleoftheorgs.html#sponsors" class="footer-link">Sponsors</a>
+                <a href="battleoftheorgs.html#support" class="footer-link">Support</a>
+            </div>
+            <p>&copy; 2025 Battle of the Orgs. All rights reserved. Built for the ultimate esports experience.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Generate player slots
+        function generatePlayerSlots() {
+            const playerSlots = document.getElementById('playerSlots');
+            const slots = [];
+            
+            for (let i = 2; i <= 6; i++) {
+                slots.push(`
+                    <div class="player-slot">
+                        <h4>Player ${i}</h4>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="player${i}Name">Name</label>
+                                <input type="text" id="player${i}Name" name="player${i}Name" placeholder="Player name">
+                            </div>
+                            <div class="form-group">
+                                <label for="player${i}Gamertag">Gamertag</label>
+                                <input type="text" id="player${i}Gamertag" name="player${i}Gamertag" placeholder="In-game name">
+                            </div>
+                        </div>
+                    </div>
+                `);
+            }
+            
+            playerSlots.innerHTML = slots.join('');
+        }
+
+        // Update progress bar based on form completion
+        function updateProgress() {
+            const form = document.getElementById('registrationForm');
+            const requiredFields = form.querySelectorAll('[required]');
+            let completed = 0;
+            
+            requiredFields.forEach(field => {
+                if (field.type === 'checkbox') {
+                    if (field.checked) completed++;
+                } else {
+                    if (field.value.trim() !== '') completed++;
+                }
+            });
+            
+            const progress = (completed / requiredFields.length) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        // Form submission handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(e.target);
+            const teamData = {};
+            
+            for (let [key, value] of formData.entries()) {
+                teamData[key] = value;
+            }
+            
+            // Simulate form submission
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.textContent;
+            
+            btn.textContent = 'Registering...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                alert('🎉 Team registration successful! You will receive a confirmation email shortly. Welcome to Battle of the Orgs!');
+                btn.textContent = originalText;
+                btn.disabled = false;
+                
+                // In a real application, you would send this data to your server
+                console.log('Team Registration Data:', teamData);
+            }, 2000);
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            generatePlayerSlots();
+            
+            // Add event listeners for progress tracking
+            const form = document.getElementById('registrationForm');
+            form.addEventListener('input', updateProgress);
+            form.addEventListener('change', updateProgress);
+            form.addEventListener('submit', handleFormSubmit);
+            
+            // Initial progress update
+            updateProgress();
+            
+            // Add animation delays to form sections
+            const sections = document.querySelectorAll('.form-section');
+            sections.forEach((section, index) => {
+                section.style.animation = `fadeInUp 0.6s ease-out ${index * 0.1}s both`;
+            });
+        });
+
+        // Add some interactivity to enhance user experience
+        document.querySelectorAll('input, select, textarea').forEach(field => {
+            field.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'translateX(5px)';
+                this.parentElement.style.transition = 'transform 0.2s ease';
+            });
+            
+            field.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'translateX(0)';
+            });
+        });
+    </script>
+</body>
+</html>

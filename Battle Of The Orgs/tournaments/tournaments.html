@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Battle of the Orgs Tournaments - Join competitive esports tournaments and compete for glory and prizes!">
+    <meta name="keywords" content="esports tournaments, gaming competition, Battle of the Orgs, prize pools">
+    <meta name="author" content="Battle of the Orgs Team">
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="theme-color" content="#ff4500">
+    
+    <!-- Twitter meta tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Battle of the Orgs - Tournaments">
+    <meta name="twitter:description" content="Join competitive esports tournaments and compete for glory and prizes!">
+    <meta name="twitter:image" content="https://example.com/tournaments.jpg">
+    
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Battle of the Orgs - Tournaments">
+    <meta property="og:description" content="Join competitive esports tournaments and compete for glory and prizes!">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="https://example.com/battleoftheorgs/tournaments">
+    <meta property="og:type" content="website">
+    
+    <!-- Copyright -->
+    <meta name="copyright" content="Battle of the Orgs Team">
+
+    <title>Tournaments - Battle of the Orgs</title>
+
+    <link rel="stylesheet" href="tournaments.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="/Battle Of The Orgs/Home/battleoftheorgs.html" class="logo">Battle of the Orgs</a>
+            <ul class="nav-menu">
+                <li><a href="#teams" class="nav-link">Teams</a></li>
+                <li><a href="/Battle Of The Orgs/tournaments/tournaments.html" class="nav-link active">Tournaments</a></li>
+                <li><a href="/Battle Of The Orgs/Live streams/livestreams.html" class="nav-link">Live Matches</a></li>
+                <!--<li><a href="#subscriptions" class="nav-link">Subscriptions</a></li>-->
+                <li><a href="#news" class="nav-link">News</a></li>
+                <li><a href="#community" class="nav-link">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Page Header -->
+        <section class="page-header fade-in">
+            <div class="page-header-content">
+                <h1>🏆 Tournaments</h1>
+                <p>Compete in prestigious tournaments, climb the leaderboards, and claim your place among the elite. From local competitions to international championships.</p>
+            </div>
+        </section>
+
+        <!-- Featured Tournament -->
+        <section class="featured-tournament fade-in">
+            <div class="featured-content">
+                <h2 class="featured-title">Championship Grand Finals 2025</h2>
+                <p class="featured-description">
+                    The ultimate showdown is here! Watch as the top 16 organizations battle for the largest prize pool in Battle of the Orgs history. Live coverage starts this weekend with commentary from legendary casters.
+                </p>
+                <div class="featured-stats">
+                    <div class="featured-stat">
+                        <div class="stat-number">$150K</div>
+                        <div class="stat-label">Prize Pool</div>
+                    </div>
+                    <div class="featured-stat">
+                        <div class="stat-number">16</div>
+                        <div class="stat-label">Teams</div>
+                    </div>
+                    <div class="featured-stat">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Days Left</div>
+                    </div>
+                    <div class="featured-stat">
+                        <div class="stat-number">LIVE</div>
+                        <div class="stat-label">Status</div>
+                    </div>
+                </div>
+                <div class="tournament-actions">
+                    <a href="/Battle Of The Orgs/Live streams/livestreams.html" class="btn">Watch Live</a>
+                    <a href="" class="btn-secondary btn">View Bracket</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tournament Filters -->
+        <section class="tournament-filters fade-in">
+            <button class="filter-btn active" onclick="filterTournaments('all')">All Tournaments</button>
+            <button class="filter-btn" onclick="filterTournaments('live')">🔴 Live</button>
+            <button class="filter-btn" onclick="filterTournaments('upcoming')">📅 Upcoming</button>
+            <button class="filter-btn" onclick="filterTournaments('registration')">📝 Registration Open</button>
+            <button class="filter-btn" onclick="filterTournaments('completed')">✅ Completed</button>
+        </section>
+
+        <!-- Tournaments Grid -->
+        <section class="tournaments-grid fade-in" id="tournamentsGrid">
+            <!-- Tournament cards will be populated by JavaScript -->
+        </section>
+
+        <!-- Tournament Bracket Preview -->
+        <section class="bracket-section fade-in">
+            <div class="bracket-header">
+                <h2>🗂️ Championship Bracket</h2>
+                <p>Follow the path to victory in our live tournament bracket</p>
+            </div>
+            <div class="bracket-preview">
+                <div class="bracket-round">
+                    <div class="round-title">Quarterfinals</div>
+                    <div class="bracket-match">
+                        <div class="bracket-team winner">Crimson Hawks</div>
+                        <div class="bracket-team">Steel Titans</div>
+                    </div>
+                    <div class="bracket-match">
+                        <div class="bracket-team winner">Phoenix Rising</div>
+                        <div class="bracket-team">Shadow Panthers</div>
+                    </div>
+                </div>
+                <div class="bracket-round">
+                    <div class="round-title">Semifinals</div>
+                    <div class="bracket-match">
+                        <div class="bracket-team winner">Crimson Hawks</div>
+                        <div class="bracket-team">Azure Wolves</div>
+                    </div>
+                    <div class="bracket-match">
+                        <div class="bracket-team">Phoenix Rising</div>
+                        <div class="bracket-team">Thunder Bolt</div>
+                    </div>
+                </div>
+                <div class="bracket-round">
+                    <div class="round-title">Finals</div>
+                    <div class="bracket-match">
+                        <div class="bracket-team">Crimson Hawks</div>
+                        <div class="bracket-team">TBD</div>
+                    </div>
+                </div>
+                <div class="bracket-round">
+                    <div class="round-title">Champion</div>
+                    <div class="bracket-match">
+                        <div class="bracket-team">TBD</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#about" class="footer-link">About</a>
+                <a href="#news" class="footer-link">News</a>
+                <a href="#community" class="footer-link">Community</a>
+                <a href="#sponsors" class="footer-link">Sponsors</a>
+                <a href="#support" class="footer-link">Support</a>
+            </div>
+            <p>&copy; 2025 Battle of the Orgs. All rights reserved. Built for the ultimate esports experience.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tournament data
+        const tournaments = [
+            {
+                id: 1,
+                title: "Rose Bowl Championship",
+                status: "live",
+                prizePool: "$75,000",
+                teams: 8,
+                startDate: "2025-05-25",
+                endDate: "2025-05-30",
+                registered: 8,
+                maxTeams: 8,
+                format: "Single Elimination",
+                game: "Valorant"
+            },
+            {
+                id: 2,
+                title: "Super Bowl Qualifier",
+                status: "upcoming",
+                prizePool: "$25,000",
+                teams: 16,
+                startDate: "2025-06-01",
+                endDate: "2025-06-05",
+                registered: 12,
+                maxTeams: 16,
+                format: "Double Elimination",
+                game: "League of Legends"
+            },
+            {
+                id: 3,
+                title: "Rookie League Tournament",
+                status: "registration",
+                prizePool: "$10,000",
+                teams: 32,
+                startDate: "2025-06-10",
+                endDate: "2025-06-15",
+                registered: 18,
+                maxTeams: 32,
+                format: "Swiss System",
+                game: "CS2"
+            },
+            {
+                id: 4,
+                title: "Mid-Season Showdown",
+                status: "upcoming",
+                prizePool: "$50,000",
+                teams: 12,
+                startDate: "2025-06-20",
+                endDate: "2025-06-25",
+                registered: 12,
+                maxTeams: 12,
+                format: "Round Robin",
+                game: "Valorant"
+            },
+            {
+                id: 5,
+                title: "Spring Split Finals",
+                status: "completed",
+                prizePool: "$100,000",
+                teams: 8,
+                startDate: "2025-04-15",
+                endDate: "2025-04-20",
+                registered: 8,
+                maxTeams: 8,
+                format: "Single Elimination",
+                game: "League of Legends",
+                winner: "Phoenix Rising"
+            },
+            {
+                id: 6,
+                title: "Community Cup",
+                status: "registration",
+                prizePool: "$5,000",
+                teams: 64,
+                startDate: "2025-07-01",
+                endDate: "2025-07-10",
+                registered: 23,
+                maxTeams: 64,
+                format: "Single Elimination",
+                game: "CS2"
+            }
+        ];
+
+        let currentFilter = 'all';
+
+        function createTournamentCard(tournament) {
+            const progress = (tournament.registered / tournament.maxTeams) * 100;
+            const statusClass = `status-${tournament.status}`;
+            
+            let actionButtons = '';
+            if (tournament.status === 'live') {
+                actionButtons = `
+                    <a href="#" class="btn">Watch Live</a>
+                    <a href="#" class="btn-secondary btn">View Bracket</a>
+                `;
+            } else if (tournament.status === 'registration') {
+                actionButtons = `
+                    <a href="#" class="btn">Register Team</a>
+                    <a href="#" class="btn-secondary btn">View Details</a>
+                `;
+            } else if (tournament.status === 'upcoming') {
+                actionButtons = `
+                    <a href="#" class="btn-secondary btn">View Details</a>
+                    <a href="#" class="btn-secondary btn">Set Reminder</a>
+                `;
+            } else if (tournament.status === 'completed') {
+                actionButtons = `
+                    <a href="#" class="btn-secondary btn">View Results</a>
+                    <a href="#" class="btn-secondary btn">Watch VODs</a>
+                `;
+            }
+
+            return `
+                <div class="tournament-card" data-status="${tournament.status}">
+                    <div class="tournament-status ${statusClass}">
+                        ${tournament.status.toUpperCase().replace('_', ' ')}
+                    </div>
+                    <div class="tournament-title">${tournament.title}</div>
+                    <div class="tournament-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Prize Pool:</span>
+                            <span class="detail-value prize-pool">${tournament.prizePool}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Format:</span>
+                            <span class="detail-value">${tournament.format}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Game:</span>
+                            <span class="detail-value">${tournament.game}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Teams:</span>
+                            <span class="detail-value">${tournament.registered}/${tournament.maxTeams}</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Dates:</span>
+                            <span class="detail-value">${formatDate(tournament.startDate)} - ${formatDate(tournament.endDate)}</span>
+                        </div>
+                        ${tournament.winner ? `
+                            <div class="detail-row">
+                                <span class="detail-label">Winner:</span>
+                                <span class="detail-value">${tournament.winner}</span>
+                            </div>
+                        ` : ''}
+                    </div>
+                    ${tournament.status === 'registration' ? `
+                        <div class="tournament-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: ${progress}%"></div>
+                            </div>
+                            <div class="progress-text">${tournament.registered}/${tournament.maxTeams} teams registered</div>
+                        </div>
+                    ` : ''}
+                    <div class="tournament-actions">
+                        ${actionButtons}
+                    </div>
+                </div>
+            `;
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+        }
+
+        function renderTournaments(filter = 'all') {
+            const grid = document.getElementById('tournamentsGrid');
+            let filteredTournaments = tournaments;
+            
+            if (filter !== 'all') {
+                filteredTournaments = tournaments.filter(t => t.status === filter);
+            }
+            
+            grid.innerHTML = filteredTournaments.map(tournament => createTournamentCard(tournament)).join('');
+        }
+
+        function filterTournaments(filter) {
+            currentFilter = filter;
+            
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Render filtered tournaments
+            renderTournaments(filter);
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTournaments(currentFilter);
+        });
+
+        
+    </script>
+</body>
+</html>

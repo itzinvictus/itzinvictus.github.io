@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Battle of the Orgs - The Ultimate Esports Tournament Platform. Join the battle, register your team, and compete for glory!">
+    <meta name="keywords" content="esports, tournaments, teams, gaming, competition, Battle of the Orgs">
+    <meta name="author" content="Battle of the Orgs Team">
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="theme-color" content="#ff4500">
+    <link rel="stylesheet" href="battleoftheorgs.css">
+    <!--meta tags for twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Battle of the Orgs - Tournament Platform">
+    <meta name="twitter:description" content="Join the ultimate esports tournament platform and compete for glory!">
+    <meta name="twitter:image" content="https://example.com/image.jpg">
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Battle of the Orgs - Tournament Platform">
+    <meta property="og:description" content="Join the ultimate esports tournament platform and compete for glory!">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="https://example.com/battleoftheorgs">
+    <meta property="og:type" content="website">
+    <!-- CopyRight-->
+    <meta name="copyright" content="Battle of the Orgs Team"> 
+
+    <title>Battle of the Orgs - Tournament Platform</title>
+
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">Battle of the Orgs</a>
+            <ul class="nav-menu">
+                <li><a href="#teams" class="nav-link">Teams</a></li>
+                <li><a href="/Battle Of The Orgs/tournaments/tournaments.html" class="nav-link">Tournaments</a></li>
+                <li><a href="#live" class="nav-link">Live Matches</a></li>
+                <!--<li><a href="#subscriptions" class="nav-link">Subscriptions</a></li>-->
+                <li><a href="#news" class="nav-link">News</a></li>
+                <li><a href="#community" class="nav-link">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero fade-in">
+            <div class="hero-content">
+                <h1>Battle of the Orgs</h1>
+                <p>The Ultimate Esports Tournament Platform</p>
+                <!--<a href="#signup" class="btn">Join the Battle</a>-->
+                
+            </div>
+        </section>
+
+        <!-- Quick Links -->
+        <section class="quick-links fade-in">
+            <div class="quick-link" onclick="showSection('signup')">
+                <h3>🚀 Team Registration</h3>
+                <p>Register your organization for upcoming tournaments</p>
+                <a href="/Battle Of The Orgs/Team Registration/teamregistration.html" class="btn">Register Now</a>
+            </div>
+            <div class="quick-link" onclick="showSection('subscriptions')">
+                <h3>💎 Subscription Tiers</h3>
+                <p>Unlock exclusive features and tournament access</p>
+                <a href="/Battle Of The Orgs/Subscriptions/subscriptions2.html" class="btn">View Plans</a>
+            </div>
+            <div class="quick-link" onclick="showSection('rulebook')">
+                <h3>📚 Official Rulebook</h3>
+                <p>Complete tournament rules and regulations</p>
+                <a href="/Battle Of The Orgs/Rulebook/rulebook.html" class="btn">Read Now</a>
+            </div>
+            <div class="quick-link" onclick="showSection('live')">
+                <h3>🔴 Live Streams</h3>
+                <p>Watch ongoing matches and tournament coverage</p>
+                <a href="/Battle Of The Orgs/Live streams/livestreams.html" class="btn">Watch Now</a>
+            </div>
+        </section>
+
+        <!-- Live Leaderboard -->
+        <section class="leaderboard fade-in" id="leaderboard">
+            <h2>🏆 Live Leaderboard & Rankings</h2>
+            <div class="division-tabs">
+                <button class="tab active" onclick="switchDivision('rose')">Rose Bowl</button>
+                <button class="tab" onclick="switchDivision('super')">Super Bowl</button>
+            </div>
+            <div class="team-list" id="teamList">
+                <!-- Teams will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Upcoming Matches -->
+        <section class="matches fade-in">
+            <h2>⚡ Upcoming Matches</h2>
+            <div class="match-grid">
+                <div class="match-card">
+                    <div class="match-teams">Team Alpha vs Team Beta</div>
+                    <div class="match-time">Today, 8:00 PM EST</div>
+                    <div class="countdown" id="countdown1">02:15:30</div>
+                </div>
+                <div class="match-card">
+                    <div class="match-teams">Crimson Hawks vs Azure Wolves</div>
+                    <div class="match-time">Tomorrow, 6:30 PM EST</div>
+                    <div class="countdown" id="countdown2">26:45:12</div>
+                </div>
+                <div class="match-card">
+                    <div class="match-teams">Phoenix Rising vs Thunder Bolt</div>
+                    <div class="match-time">Friday, 7:00 PM EST</div>
+                    <div class="countdown" id="countdown3">74:30:45</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Rivalries -->
+        <section class="rivalries fade-in">
+            <h2>🔥 Featured Rivalries</h2>
+            <div class="rivalry-banners">
+                <div class="rivalry-banner">
+                    <div class="rivalry-title">The Classic Showdown</div>
+                    <div class="rivalry-description">Two legendary organizations clash in an epic battle for supremacy</div>
+                    <div class="rivalry-hype">HYPE LEVEL: MAXIMUM</div>
+                </div>
+                <div class="rivalry-banner">
+                    <div class="rivalry-title">Regional Domination</div>
+                    <div class="rivalry-description">Eastern vs Western powerhouses in a regional championship</div>
+                    <div class="rivalry-hype">PRIZE POOL: $50,000</div>
+                </div>
+                <div class="rivalry-banner">
+                    <div class="rivalry-title">Underdog Rising</div>
+                    <div class="rivalry-description">New challengers face off against established champions</div>
+                    <div class="rivalry-hype">UPSET POTENTIAL: HIGH</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+               
+                <a href="#about" class="footer-link">About</a>
+                <a href="#news" class="footer-link">News</a>
+                <a href="#community" class="footer-link">Community</a>
+                <a href="#sponsors" class="footer-link">Sponsors</a>
+                <a href="#support" class="footer-link">Support</a>
+            </div>
+            <p>&copy; 2025 Battle of the Orgs. All rights reserved. Built for the ultimate esports experience.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample team data
+        const teams = {
+            rose: [
+                { rank: 1, name: "Crimson Hawks", wins: 24, losses: 3, winRate: "88.9%" },
+                { rank: 2, name: "Azure Wolves", wins: 22, losses: 5, winRate: "81.5%" },
+                { rank: 3, name: "Golden Eagles", wins: 20, losses: 7, winRate: "74.1%" },
+                { rank: 4, name: "Shadow Panthers", wins: 18, losses: 9, winRate: "66.7%" },
+                { rank: 5, name: "Steel Titans", wins: 16, losses: 11, winRate: "59.3%" }
+            ],
+            super: [
+                { rank: 1, name: "Phoenix Rising", wins: 28, losses: 2, winRate: "93.3%" },
+                { rank: 2, name: "Thunder Bolt", wins: 25, losses: 5, winRate: "83.3%" },
+                { rank: 3, name: "Viper Squad", wins: 23, losses: 7, winRate: "76.7%" },
+                { rank: 4, name: "Storm Breakers", wins: 21, losses: 9, winRate: "70.0%" },
+                { rank: 5, name: "Frost Guardians", wins: 19, losses: 11, winRate: "63.3%" }
+            ]
+        };
+
+        let currentDivision = 'rose';
+
+        function switchDivision(division) {
+            currentDivision = division;
+            
+            // Update tab styling
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update team list
+            updateTeamList();
+        }
+
+        function updateTeamList() {
+            const teamList = document.getElementById('teamList');
+            const teamsData = teams[currentDivision];
+            
+            teamList.innerHTML = teamsData.map(team => `
+                <div class="team-item">
+                    <div class="team-info">
+                        <div class="team-rank">#${team.rank}</div>
+                        <div class="team-name">${team.name}</div>
+                    </div>
+                    <div class="team-stats">
+                        <div>W: ${team.wins}</div>
+                        <div>L: ${team.losses}</div>
+                        <div>Win Rate: ${team.winRate}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateCountdowns() {
+            const countdowns = document.querySelectorAll('[id^="countdown"]');
+            countdowns.forEach((countdown, index) => {
+                const currentTime = countdown.textContent.split(':');
+                let hours = parseInt(currentTime[0]);
+                let minutes = parseInt(currentTime[1]);
+                let seconds = parseInt(currentTime[2]);
+                
+                // Decrease by 1 second
+                seconds--;
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                    if (minutes < 0) {
+                        minutes = 59;
+                        hours--;
+                        if (hours < 0) {
+                            hours = 0;
+                            minutes = 0;
+                            seconds = 0;
+                        }
+                    }
+                }
+                
+                countdown.textContent = 
+                    String(hours).padStart(2, '0') + ':' +
+                    String(minutes).padStart(2, '0') + ':' +
+                    String(seconds).padStart(2, '0');
+            });
+        }
+
+        function showSection(sectionName) {
+            alert(`Navigating to ${sectionName} section. This would be implemented with proper routing in a full application.`);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTeamList();
+            
+            // Update countdowns every second
+            setInterval(updateCountdowns, 1000);
+            
+            // Add scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.6s ease-out';
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // Add some interactivity to rivalry banners
+        document.querySelectorAll('.rivalry-banner').forEach(banner => {
+            banner.addEventListener('click', function() {
+                alert('Opening rivalry details page...');
+            });
+        });
+
+        // Add hover effects to team items
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.team-item')) {
+                alert('Opening team profile page...');
+            }
+        });
+    </script>
+</body>
+</html>
